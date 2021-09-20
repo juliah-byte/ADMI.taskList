@@ -1,0 +1,29 @@
+<div>
+    <h2>Add Task</h2>
+    <form (ngSubmit) ="save(); homeForm.reset()" id="new-home" #homeForm>
+        <div class="form-group">
+            <label for="descripiton">Description</label>
+            <input [(ngModel)]="taskToSave.description" 
+                   name="description" 
+                   class="form-control" 
+                   id="description" 
+                   type="number" />
+        </div>
+        <div class="form-group">
+            <label for="dDate">Due Date</label>
+            <input 
+                   [(ngModel)]="taskToSave.dueDate"
+                   name="dDate" 
+                   class="form-control" 
+                   id="dDate" 
+                   type="date" />
+        </div>
+        <div>
+            <input class="btn btn-primary submit-button" type="submit" value="Save" />
+        </div>
+        <div>
+            <label ng-init="today = 1">{{ today }}</label>
+
+        </div>
+    </form>
+</div>
