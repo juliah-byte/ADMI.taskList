@@ -26,8 +26,11 @@ public class TasksService {
 		return tRepo.save(task);
 	}
 	
-	public void delete(Tasks task) {
-		tRepo.delete(task);
+	public void deleteById(Long id) {
+	
+		tRepo.deleteById(id);
+		
+		
 	}
 
 }

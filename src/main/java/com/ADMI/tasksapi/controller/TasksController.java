@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,12 +41,12 @@ public class TasksController {
 		return new ResponseEntity<Tasks>(tservice.save(task), HttpStatus.CREATED);
 	}
 	
-	@DeleteMapping
-	public ResponseEntity<Void> delete(@RequestBody Tasks task) throws AttributeNotFoundException{
+	@DeleteMapping(value = "/{id}")
+	public ResponseEntity<Long> delete(@PathVariable Long id){
 		
-	    tservice.delete(task);
-
-		return ResponseEntity.ok().build();
+	    tservice.deleteById(id);
+	    
+	    return new ResponseEntity<>(id, HttpStatus.OK);
 		
 	}
 

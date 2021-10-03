@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Task from '../models/Task';
 import { TaskService } from '../task.service';
 
 @Component({
@@ -11,7 +12,9 @@ export class TaskListComponent implements OnInit {
 
   constructor (private service: TaskService) { }
 
-  
+
+  myId: number;
+  myTask: Task;
   taskList: any = [];
   
   ngOnInit(): void {
@@ -20,6 +23,12 @@ export class TaskListComponent implements OnInit {
       this.taskList = data;
       console.log(data);
 
+    });
+  }
+
+  delete(id: number): void {
+    this.service.delete(id).subscribe((data) => {
+      this.ngOnInit();
     });
   }
 }

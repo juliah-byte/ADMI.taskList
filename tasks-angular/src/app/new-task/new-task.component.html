@@ -7,23 +7,30 @@
                    name="description" 
                    class="form-control" 
                    id="description" 
-                   type="number" />
+                   type="text" />
+        </div>
+        <div class = "form-group">
+            <label>Today's date</label>
+            <input 
+                name="cDate" 
+                class="form-control" 
+                id="cDate" 
+                type="text"
+                value={{myToday}}
+             />
         </div>
         <div class="form-group">
             <label for="dDate">Due Date</label>
-            <input 
-                   [(ngModel)]="taskToSave.dueDate"
-                   name="dDate" 
+            <input [(ngModel)]="taskToSave.dueDate"
+                   name="dDate"
                    class="form-control" 
                    id="dDate" 
-                   type="date" />
+                   type="date"
+                   />
         </div>
         <div>
             <input class="btn btn-primary submit-button" type="submit" value="Save" />
         </div>
-        <div>
-            <label ng-init="today = 1">{{ today }}</label>
-
-        </div>
+    
     </form>
 </div>

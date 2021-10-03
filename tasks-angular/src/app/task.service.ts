@@ -23,8 +23,8 @@ export class TaskService {
     return this.httpClient.post<Task>(this.url, task);
   }
 
-  delete(task: Task): void{
-    this.httpClient.delete<Task>(this.url);
+  delete(id: number): Observable<number>{
+    return this.httpClient.delete<number>(this.url + "/" + id);
   }
 
 }
